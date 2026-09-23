@@ -29,7 +29,8 @@ public class CursoService implements ICursoService{
 
     @Override
     public cursoDTO editarCurso(Long id_curso, Curso curso) {
-        Curso cur = repo.findById(id_curso);
+        Curso cur = repo.findById(id_curso)
+                .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
         cur.setId_curso(curso.getId_curso());
         cur.setNombre(curso.getNombre());
         cur.setListaTemas(curso.getListaTemas());
