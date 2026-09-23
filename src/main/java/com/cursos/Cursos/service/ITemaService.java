@@ -10,6 +10,6 @@ import java.util.List;
 public interface ITemaService {
 
     temaDTO crearTema(Tema tema);
-    List<temaDTO> traerTemas(Long id_curso);
-    temaDTO editarTema(Long id_tema, Tema tema);
+    List<Tema> traerTemas();
+    List<temaDTO> traerTemasByCurso(long id_curso);
 }

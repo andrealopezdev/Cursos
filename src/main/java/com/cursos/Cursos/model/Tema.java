@@ -1,10 +1,14 @@
 package com.cursos.Cursos.model;
 
+import com.cursos.Cursos.dto.temaDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -21,4 +25,13 @@ public class Tema {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cursoId")
     public Curso curso;
-}
+
+    public temaDTO toDTOTema (Tema tema) {
+        temaDTO temadto = new temaDTO();
+        temadto.setCurso(tema.getCurso());
+        temadto.setId_tema(tema.getId_tema());
+        temadto.setNombre_tema(tema.getNombre_tema());
+        return temadto;
+    };
+
+};
